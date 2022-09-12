@@ -1,0 +1,16 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        if (nums.length==0){
+            return -1;
+        }
+        
+        for(int i=0; i<nums.length; i++){
+            int Element = nums[i];
+            if(Element==target){
+                return i;
+            }
+            
+        }
+        return -1;
+    }
+}
