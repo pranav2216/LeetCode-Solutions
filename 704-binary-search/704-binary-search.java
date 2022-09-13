@@ -5,8 +5,7 @@ class Solution {
         }
         
         for(int i=0; i<nums.length; i++){
-            int Element = nums[i];
-            if(Element==target){
+            if(nums[i]==target){
                 return i;
             }
             
@@ -14,3 +13,4 @@ class Solution {
         return -1;
     }
 }
+
