@@ -9,7 +9,6 @@ class Solution {
         
 }
     
-    
     int search(int[]nums, int target, boolean findstartindex){
         int ans = -1;    
         int start = 0;
