@@ -18,9 +18,8 @@ class Solution {
         
     }
     
-
-    
     public int orderAgnosticbinarysearch(MountainArray nums,int target, int start, int end){
+        
         boolean isAsn = nums.get(start)<nums.get(end);
         
         while(start<=end){
@@ -34,8 +33,7 @@ class Solution {
                 }
                 else{
                     start=mid+1;
-                }
-                
+                } 
             }
             
             else{
@@ -45,14 +43,12 @@ class Solution {
                 else{
                     start=mid+1;
                 } 
-             
             }
-            
         }
         return -1;
     }
     
-        public int findInMountainArray( MountainArray nums) {
+        public int findInMountainArray(MountainArray nums) {
         int start = 0;
         int end = nums.length()-1;
         
