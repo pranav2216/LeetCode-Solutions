@@ -7,80 +7,69 @@
  * }
  */
  
-
 class Solution {
-    public int findInMountainArray(int target, MountainArray arr){
-        
-        int peak = findPeakIndexInMountainArray(arr);
-        
-        //finding in left side of array 
-        
-        int firstTry = orderAgnosticBinarySearch(arr, 0, peak, target);
-        
-        if(firstTry != -1){
-          return firstTry;
+    public int findInMountainArray(int target, MountainArray nums){
+        int peak = findInMountainArray(nums);
+        int firstTry = orderAgnosticbinarysearch(nums,target,0,peak);
+        if (firstTry!=-1){
+            return firstTry;
         }
+        return orderAgnosticbinarysearch(nums,target,peak+1,nums.length()-1);
         
-        return orderAgnosticBinarySearch(arr,peak+1, arr.length()-1,target);
     }
     
-    public int orderAgnosticBinarySearch(MountainArray arr,int start, int end, int target){
-       
+
     
-        boolean isAsc = arr.get(start) < arr.get(end);
-       
-        while(start <= end){
-            
-            int mid = start + (end - start)/2;
-            
-            if(arr.get(mid) == target)
-            {
+    public int orderAgnosticbinarysearch(MountainArray nums,int target, int start, int end){
+        boolean isAsn = nums.get(start)<nums.get(end);
+        
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            if (nums.get(mid)==target){
                 return mid;
-                //return arr.get(mid);
             }
-            if(isAsc == true){
-                 if(target < arr.get(mid))
-                 {
-                     end = mid -1;
-                 }
-                else
-                {
-                    start = mid +1;
+            if(isAsn==true){
+                if(target<nums.get(mid)){
+                    end=mid-1;
                 }
-           }else{
-                if(target > arr.get(mid)){
-                    end = mid - 1;
+                else{
+                    start=mid+1;
                 }
-                else
-                {
-                    start = mid + 1;
-                }
+                
             }
+            
+            else{
+                if(target>nums.get(mid)){
+                    end=mid-1;
+                }
+                else{
+                    start=mid+1;
+                } 
+             
+            }
+            
         }
         return -1;
-      
-       
     }
     
-    public int findPeakIndexInMountainArray(MountainArray arr)
-    {
+        public int findInMountainArray( MountainArray nums) {
         int start = 0;
-        int end = arr.length()-1;
+        int end = nums.length()-1;
         
-        while(start < end){
-            
-            int mid = start + (end - start)/2;
-            
-            if(arr.get(mid) > arr.get(mid + 1) )
-            {
-                end = mid;
+        while (start<end){
+            int mid = start + (end-start)/2;
+            if (nums.get(mid) > nums.get(mid+1)){
+                end = mid ;
             }
             else{
-                start = mid+1;
+                start = mid + 1;
             }
-            
+             
         }
-        return start;
+      return start;
+        
     }
+    
 }
+
 
