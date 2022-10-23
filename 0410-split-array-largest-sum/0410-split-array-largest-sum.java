@@ -4,7 +4,7 @@ class Solution {
         int end=0;
         for (int i=0; i<nums.length; i++){
             start = Math.max(start,nums[i]);
-            end = end + nums[i];
+            end += nums[i];
         }
         
         while(start<end){
@@ -17,7 +17,7 @@ class Solution {
                     sum=num;
                     pices++;
                 }else{
-                    sum=sum+num;
+                    sum+=num;
                 }
             }
             if(pices>m){
